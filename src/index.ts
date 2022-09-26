@@ -12,15 +12,18 @@ import promptSync from 'prompt-sync'
 const prompt = promptSync()
 const speedLight = 2.998 * Math.pow(10, 8)
 
+let energy: number | undefined
+
 const massString = prompt('Enter the mass of an object in kilograms: ')
 
 try {
-  let massNumber = parseInt(massString)
+  const massNumber = parseInt(massString)
   energy = massNumber * Math.pow(speedLight, 2)
-} catch (err) {
+  console.log(
+    `\nThe energy which can be released from the object is ${energy}.`
+  )
+} catch (error) {
   console.log('\nInvalid number!')
 }
-console.log(
-  '\nThe energy which can be released from the object is ${energy} J.'
-)
+
 console.log('\nDone.')
