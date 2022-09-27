@@ -16,14 +16,18 @@ let energy: number | undefined
 
 const massString = prompt('Enter the mass of an object in kilograms: ')
 
-try {
-  const massNumber = parseInt(massString)
-  energy = massNumber * Math.pow(speedLight, 2)
-  console.log(
-    `\nThe energy which can be released from the object is ${energy}.`
-  )
-} catch (error) {
+const massNumber = parseInt(massString)
+if (isNaN(massNumber)) {
   console.log('\nInvalid number!')
+} else {
+  if (massNumber > 0) {
+    energy = massNumber * Math.pow(speedLight, 2)
+    console.log(
+      `\nThe energy which can be released from the object is ${energy}.`
+    )
+  } else {
+    console.log('\nPlease enter a positive number!')
+  }
 }
 
 console.log('\nDone.')
